@@ -3,6 +3,7 @@ from cnnClassifier.utils.common import read_yaml, create_directories
 from cnnClassifier.entities.config_entity import DataIngestionConfig
 from cnnClassifier.entities.config_entity import PrepareBaseModelConfig
 from cnnClassifier.entities.config_entity import ModelTrainingConfig
+from cnnClassifier.entities.config_entity import EvaluationConfig
 from pathlib import Path
 import os
 
@@ -68,3 +69,16 @@ class ConfiguarationManager:
         )
 
         return model_training_config
+    
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model="artifacts/training/model.h5",
+            training_data="artifacts/data_ingestion/unzip_data/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone",
+            mlflow_uri="https://dagshub.com/saviosunny48/Kidney-Tumor-Classification-Project-using-MLflow-and-DVC-and-AWS.mlflow",
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config
+
