@@ -21,3 +21,17 @@ try:
     logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\n")
 except Exception as e:
     logger.exception(f"An error occurred in stage {STAGE_NAME}: {e}")   
+
+
+STAGE_NAME = "Model Training Stage"
+
+
+try:
+    logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
+    from cnnClassifier.pipeline.stage_03_model_training import ModelTrainingPipeline
+    obj = ModelTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\n")
+except Exception as e:
+    logger.exception(f"An error occurred in stage {STAGE_NAME}: {e}")    
+    raise e
