@@ -1,4 +1,8 @@
-# Basic parameters for the Kidney Disease Classification
-epochs: 1
-batch_size: 16
-learning_rate: 0.01
+AUGMENTATION: True
+IMAGE_SIZE: [224,224,3]
+BATCH_SIZE: 16
+INCLUDE_TOP: False
+EPOCHS: 1
+CLASSES: 2
+WEIGHTS: imagenet
+LEARNING_RATE: 0.001
